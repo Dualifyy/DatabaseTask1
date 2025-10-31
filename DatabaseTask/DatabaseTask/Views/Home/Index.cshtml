@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<DatabaseTask.Models.StudentAverage>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +8,23 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h2>Student Averages</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Average Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentName</td>
+                <td>@student.AverageGrade</td>
+            </tr>
+        }
+    </tbody>
+</table>
